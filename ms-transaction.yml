@@ -29,7 +29,8 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/transactiondb
+      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority
+
 
     redis:
       host: redis
