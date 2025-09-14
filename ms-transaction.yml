@@ -7,7 +7,7 @@ spring:
 
   cloud:
     config:
-      enabled: false
+      enabled: true
 
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
