@@ -8,6 +8,9 @@ spring:
   cloud:
     config:
       enabled: true
+  redis:
+    host: redis
+    port: 6379
 
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:kafka:9092}
