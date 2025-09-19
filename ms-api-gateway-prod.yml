@@ -11,7 +11,7 @@ spring:
     name: ms-api-gateway
   data:
     mongodb:
-      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt?retryWrites=true&w=majority&appName=nnt-distributed-db
+      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
   cloud:
     gateway:
       routes:
