@@ -1,6 +1,6 @@
 server:
   port: 8090
-  
+
 spring:
   application:
     name: ms-api-gateway
@@ -8,7 +8,7 @@ spring:
     active: dev
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://config-server:8888  # Cambié esto a "config-server" para usar Docker, si estás en Docker
     gateway:
       routes:
         - id: customer
@@ -31,7 +31,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/  # URL de Eureka Server
     register-with-eureka: true
     fetch-registry: true
   instance:
@@ -41,3 +41,7 @@ app:
   jwt:
     secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
     expirationMs: 3600000 # 1h
+
+  data:
+    mongodb:
+      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db  # MongoDB Atlas URI
