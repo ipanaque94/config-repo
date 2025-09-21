@@ -8,7 +8,8 @@ spring:
     active: dev
   cloud:
     config:
-      uri: http://config-server:8888  # ConfigServer URI en Docker
+      uri: http://config-server:8888
+      fail-fast: false
     gateway:
       routes:
         - id: customer
