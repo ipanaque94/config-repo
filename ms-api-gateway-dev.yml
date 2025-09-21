@@ -42,6 +42,7 @@ app:
     secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
     expirationMs: 3600000 # 1h
 
+spring:
   data:
     mongodb:
       uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db  # MongoDB Atlas URI
