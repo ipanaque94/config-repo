@@ -37,11 +37,6 @@ spring:
           predicates:
             - Path=/api/movements/**
 
-app:
-  jwt:
-    secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
-    expirationMs: 3600000 # 1h
-
 spring:
   application:
     name: ms-api-gateway
