@@ -1,19 +1,19 @@
 server:
   port: 8090
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka/
-  instance:
-    prefer-ip-address: true
-
 spring:
   application:
     name: ms-api-gateway
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8888
+  config:
+    import: "optional:configserver:"
   data:
     mongodb:
-      uri: mongodb://localhost:27017/customer_business
+      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
   cloud:
     gateway:
       routes:
@@ -33,6 +33,15 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/api/movements/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
 
 app:
   jwt:
