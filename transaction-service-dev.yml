@@ -28,8 +28,13 @@ spring:
       properties:
         schema.registry.url: http://schema-registry:8081
         specific.avro.reader: true
-
-
+ app:
+  jwt:
+    secret: miclavesecretamuyseguraymuylarga12345678901234567890
+    header: Authorization
+    prefix: Bearer
+    authorities-key: roles
+       
   data:
     mongodb:
       uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
