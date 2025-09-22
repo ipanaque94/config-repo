@@ -1,13 +1,18 @@
 server:
   port: 8090
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
 spring:
   application:
     name: ms-api-gateway
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/customer_business
   cloud:
-    config:
-      uri: http://config-server:8888
-      fail-fast: false
     gateway:
       routes:
         - id: customer
@@ -27,20 +32,7 @@ spring:
           predicates:
             - Path=/api/movements/**
 
-  data:
-    mongodb:
-      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db  # MongoDB Atlas URI
-
-  eureka:
-    client:
-      service-url:
-        defaultZone: http://eureka-server:8761/eureka/  # Eureka Server URL
-      register-with-eureka: true
-      fetch-registry: true
-    instance:
-      prefer-ip-address: true
-
-  app:
-    jwt:
-      secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
-      expirationMs: 3600000  # 1h
+app:
+  jwt:
+    secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
+    expirationMs: 3600000 # 1h
