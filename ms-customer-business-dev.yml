@@ -2,6 +2,9 @@ spring:
   application:
     name: ms-customer-business
 
+  config:
+    uri: http://localhost:8888
+
   data:
     mongodb:
       uri: mongodb://localhost:27017/customer_business

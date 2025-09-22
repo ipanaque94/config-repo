@@ -2,6 +2,9 @@ spring:
   application:
     name: ms-customer-business
 
+  config:
+    import: "optional:configserver:http://localhost:8888"
+
   data:
     mongodb:
       uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
