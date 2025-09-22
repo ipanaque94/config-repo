@@ -9,10 +9,9 @@ eureka:
 spring:
   application:
     name: ms-api-gateway
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/customer_business
   cloud:
+    config:
+      uri: http://localhost:8888
     gateway:
       routes:
         - id: customer
@@ -31,6 +30,10 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/api/movements/**
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/customer_business
 
 app:
   jwt:

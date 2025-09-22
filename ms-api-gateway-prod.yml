@@ -9,28 +9,31 @@ eureka:
 spring:
   application:
     name: ms-api-gateway
-  data:
-    mongodb:
-      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
+  config:
+    import: "optional:configserver:http://config-server:8888"
   cloud:
     gateway:
       routes:
         - id: customer
-          uri: http://localhost:8081
+          uri: http://ms-customer:8081
           predicates:
             - Path=/api/customers/**
         - id: products
-          uri: http://localhost:8082
+          uri: http://ms-products:8082
           predicates:
             - Path=/api/products/**
         - id: transactions
-          uri: http://localhost:8181
+          uri: http://ms-transactions:8181
           predicates:
             - Path=/api/transactions/**
         - id: movements
-          uri: http://localhost:8084
+          uri: http://ms-movements:8084
           predicates:
             - Path=/api/movements/**
+
+  data:
+    mongodb:
+      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
 
 app:
   jwt:
