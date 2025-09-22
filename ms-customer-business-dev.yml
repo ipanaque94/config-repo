@@ -5,8 +5,9 @@ spring:
   application:
     name: ms-customer-business
 
-  config:
-    uri: http://localhost:8888
+  cloud:
+    config:
+      uri: http://localhost:8888
 
   data:
     mongodb:
