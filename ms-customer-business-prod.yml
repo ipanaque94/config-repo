@@ -10,7 +10,7 @@ spring:
       uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
 
   kafka:
-    bootstrap-servers: prod-kafka-host:9092
+    bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -23,7 +23,7 @@ spring:
         spring.json.trusted.packages: "com.customer.business.event.dto,com.customer.business.model"
 
   redis:
-    host: prod-redis-host
+    host: localhost
     port: 6379
     timeout: 5000
 
