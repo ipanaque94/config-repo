@@ -8,23 +8,23 @@ spring:
   cloud:
     config:
       import: "optional:configserver:http://config-server:8888"
-      
+
     gateway:
       routes:
         - id: customer
-          uri: lb://ms-customer
+          uri: http://ms-customer:8081
           predicates:
             - Path=/api/customers/**
         - id: products
-          uri: lb://ms-products
+          uri: http://ms-products:8082
           predicates:
             - Path=/api/products/**
         - id: transactions
-          uri: lb://ms-transactions
+          uri: http://ms-transactions:8181
           predicates:
             - Path=/api/transactions/**
         - id: movements
-          uri: lb://ms-movements
+          uri: http://ms-movements:8084
           predicates:
             - Path=/api/movements/**
 
