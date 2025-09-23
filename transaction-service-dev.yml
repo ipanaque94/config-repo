@@ -8,6 +8,11 @@ spring:
   cloud:
     config:
       enabled: true
+
+  data:
+    mongodb:
+      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
+
   redis:
     host: redis
     port: 6379
@@ -28,17 +33,20 @@ spring:
       properties:
         schema.registry.url: http://schema-registry:8081
         specific.avro.reader: true
- app:
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+app:
   jwt:
     secret: miclavesecretamuyseguraymuylarga12345678901234567890
     header: Authorization
     prefix: Bearer
     authorities-key: roles
-       
-  data:
-    mongodb:
-      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
-
 
 kafka:
   topics:
@@ -48,14 +56,6 @@ kafka:
     ordered-debit-withdrawal-requested: ordered.debit.withdrawal.requested
     third-party-credit-payment-requested: third.party.credit.payment.requested
     transaction-created: transaction.created
-
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka/
-  instance:
-    prefer-ip-address: true
 
 resilience4j:
   circuitbreaker:
@@ -82,4 +82,3 @@ logging:
     root: INFO
     org.springframework.web: INFO
     com.enoc.transaction: DEBUG
-

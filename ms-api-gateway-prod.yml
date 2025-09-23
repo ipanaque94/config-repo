@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   application:
@@ -44,4 +44,7 @@ eureka:
 app:
   jwt:
     secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
-    expirationMs: 3600000 # 1h
+    expirationMs: 3600000
+    header: Authorization
+    prefix: Bearer
+    authoritiesKey: roles
