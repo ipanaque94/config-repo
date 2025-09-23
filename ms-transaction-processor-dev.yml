@@ -1,0 +1,56 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: ms-transaction-processor
+
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/transactiondb
+
+  redis:
+    host: localhost
+    port: 6379
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: transaction-processor-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    topics:
+      - name: wallet.transfer.requested
+        num-partitions: 3
+        replication-factor: 1
+      - name: wallet.topup.requested
+        num-partitions: 3
+        replication-factor: 1
+      - name: transaction.processed
+        num-partitions: 3
+        replication-factor: 1
+      - name: transaction.failed
+        num-partitions: 3
+        replication-factor: 1
+
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    com.ms.transaction: DEBUG
+    org.springframework.kafka: INFO
