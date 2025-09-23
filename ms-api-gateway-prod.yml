@@ -27,6 +27,10 @@ spring:
           uri: http://ms-movements:8084
           predicates:
             - Path=/api/movements/**
+        - id: wallets
+          uri: http://ms-wallet:9001
+          predicates:
+            - Path=/api/wallets/**
 
   data:
     mongodb:

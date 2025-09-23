@@ -27,6 +27,10 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/api/movements/**
+        - id: wallets
+          uri: http://localhost:9001
+          predicates:
+            - Path=/api/wallets/**
 
   data:
     mongodb:
