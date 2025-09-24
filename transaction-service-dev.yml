@@ -46,7 +46,6 @@ app:
     secret: miclavesecretamuyseguraymuylarga12345678901234567890
     header: Authorization
     prefix: Bearer
-    authorities-key: roles
 
 kafka:
   topics:
