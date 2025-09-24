@@ -1,0 +1,20 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ms-movement-business
+
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/customer_business
+      database: customer_business
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
