@@ -11,8 +11,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/customer_business
-      database: customer_business
+      uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
 
 eureka:
   client:
