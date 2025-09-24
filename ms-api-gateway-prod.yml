@@ -23,8 +23,6 @@ spring:
           uri: lb://TRANSACTION-SERVICE
           predicates:
             - Path=/api/transactions/**
-          filters:
-            - StripPrefix=1
         - id: movements
           uri: http://ms-movements:8084
           predicates:
