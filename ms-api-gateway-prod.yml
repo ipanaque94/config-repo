@@ -20,7 +20,7 @@ spring:
           predicates:
             - Path=/api/products/**
         - id: transactions
-          uri: http://ms-transactions:8181
+          uri: http://transaction-service:8181
           predicates:
             - Path=/api/transactions/**
         - id: movements
