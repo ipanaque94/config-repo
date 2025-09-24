@@ -17,31 +17,17 @@ spring:
     bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      properties:
-        schema.registry.url: http://localhost:8081
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
       group-id: transaction-consumer-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       auto-offset-reset: earliest
       enable-auto-commit: true
-      properties:
-        schema.registry.url: http://localhost:8081
-        specific.avro.reader: true
 
   data:
     mongodb:
       uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
-
-kafka:
-  topics:
-    credit-payment-requested: credit.payment.requested
-    external-transfer-requested: external.transfer.requested
-    debit-card-payment-requested: debit.card.payment.requested
-    ordered-debit-withdrawal-requested: ordered.debit.withdrawal.requested
-    third-party-credit-payment-requested: third.party.credit.payment.requested
-    transaction-created: transaction.created
 
 eureka:
   client:
