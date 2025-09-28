@@ -1,47 +1,42 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   application:
     name: ms-api-gateway
-
   cloud:
     config:
-      uri: http://localhost:8888
-
+      uri: http://config-server:8888
     gateway:
       routes:
         - id: customer
-          uri: http://localhost:8081
+          uri: lb://customer-service
           predicates:
             - Path=/api/customers/**
         - id: products
-          uri: http://localhost:8082
+          uri: lb://product-service
           predicates:
             - Path=/api/products/**
         - id: transactions
-          uri: http://localhost:8181
+          uri: lb://transaction-service
           predicates:
             - Path=/api/transactions/**
         - id: movements
-          uri: http://localhost:8084
+          uri: lb://movement-service
           predicates:
             - Path=/api/movements/**
         - id: wallets
-          uri: http://localhost:9001
+          uri: lb://wallet-service
           predicates:
             - Path=/api/wallets/**
-
   data:
     mongodb:
       uri: mongodb+srv://rodasenoc4_db_user:LVDqpURVaOZbfkQz@nnt-distributed-db.effpohk.mongodb.net/nnt-db?retryWrites=true&w=majority&appName=nnt-distributed-db
-
-  eureka:
-    client:
-      service-url:
-        defaultZone: http://localhost:8761/eureka
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
 app:
   jwt:
     secret: "miclavesecretamuyseguraymuylarga12345678901234567890"
-    expirationMs: 3600000 # 1h
+    expirationMs: 3600000
